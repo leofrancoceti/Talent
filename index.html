@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>McDonald's</title>
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="logo"><h1>McDonald's</h1></div>
+
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+
+     <ul class="nav-menu" id="nav-menu">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#ruleta">Ruleta</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <div class="icono-carrito" title="Ver carrito">🛒</div>
+  </header>
+
+  <!-- Hero Sección -->
+  <section class="hero" id="inicio">
+    <h2>¡Nuevo Menú Deluxe!</h2>
+    <p>Prueba nuestra nueva línea de hamburguesas gourmet con ingredientes premium y sabores únicos.</p>
+    <a href="#menu" class="btn">Ver Menú</a>
+  </section>
+
+  <!-- Sección Menú -->
+  <section id="menu" class="menu-section">
+    <h2>Menú</h2>
+
+    <!-- Filtro -->
+    <div class="filtros-menu">
+      <button onclick="filtrarCategoria('todas')">Todas</button>
+      <button onclick="filtrarCategoria('hamburguesas')">Hamburguesas</button>
+      <button onclick="filtrarCategoria('papas')">Papas</button>
+      <button onclick="filtrarCategoria('postres')">Postres</button>
+      <button onclick="filtrarCategoria('bebidas')">Bebidas</button>
+    </div>
+
+    <!-- Categoría: Hamburguesas -->
+    <h3>🍔 Hamburguesas</h3>
+    <div class="menu-grid hamburguesas">
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/300x200/DA291C/FFFFFF?text=Big+Mac" alt="Big Mac">
+        <div class="menu-item-content">
+          <h3>Big Mac</h3>
+          <p>Doble carne, salsa especial y más.</p>
+          <div class="price">$5.99</div>
+          
+          <button class="add-btn">Añadir al carrito</button>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/300x200/DA291C/FFFFFF?text=CuartodeLibra" alt="Cuarto de Libra">
+        <div class="menu-item-content">
+          <h3>Cuarto de Libra</h3>
+          <p> incluye una carne 100% de res, calientitas y jugosas.</p>
+          <div class="price">$6.49</div>
+          <button class="add-btn">Añadir</button>
+         </div>
+        </div>
+        <div class="menu-item">
+          <img src="https://via.placeholder.com/300x200/DA291C/FFFFFF?text=McNíficaDoble" alt="McNífica Doble">
+          <div class="menu-item-content">
+            <h3>McNífica Doble</h3>
+            <p>Doble carne 100% res y  queso americano..</p>
+            <div class="price">$7</div>
+            <button class="add-btn">Añadir</button>
+           </div>
+          </div>
+    </div>
+
+    <!-- Categoría: Papas -->
+    <h3>🍟 Papas</h3>
+    <div class="menu-grid papas">
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/300x200/DA291C/FFFFFF?text=PapasGrandes" alt="Papas Grandes">
+        <div class="menu-item-content">
+          <h3>Papas Fritas</h3>
+          <p>Papas crujientes recién hechas.</p>
+          <div class="price">$2.99</div>
+          <button class="add-btn">Añadir al carrito</button>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/300x200/DA291C/FFFFFF?text=PapasKids" alt="Papas Kids">
+        <div class="menu-item-content">
+          <h3>Papas Kids</h3>
+          <p>Papas crujientes del tamaño perfecto para tus niños.</p>
+          <div class="price">$1</div>
+          <button class="add-btn">Añadir al carrito</button>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/300x200/DA291C/FFFFFF?text=PapasMedianas" alt="Papas Medianas">
+        <div class="menu-item-content">
+          <h3>Papas Medianas</h3>
+          <p>Papas crujientes, ni mucho ni poquito.</p>
+          <div class="price">$1.99</div>
+          <button class="add-btn">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Categoría: Postres -->
+    <h3>🍨 Postres</h3>
+    <div class="menu-grid postres">
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/300x200/DA291C/FFFFFF?text=McFlurryO" alt="McFlurry Oreo">
+        <div class="menu-item-content">
+          <h3>McFlurry Oreo</h3>
+          <p>Helado con trozos de Oreo.</p>
+          <div class="price">$3.29</div>
+          <button class="add-btn">Añadir al carrito</button>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/300x200/DA291C/FFFFFF?text=McFlurryg" alt="McFlurry Gansito Chocolate">
+        <div class="menu-item-content">
+          <h3>McFlurry Gansito Chocolate</h3>
+          <p>Helado con trozos de Gansito sabor chocolate.</p>
+          <div class="price">$3.29</div>
+          <button class="add-btn">Añadir al carrito</button>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/300x200/DA291C/FFFFFF?text=McFlurryCM" alt="McFlurry Caramelo Mix">
+        <div class="menu-item-content">
+          <h3>McFlurry Caramelo Mix</h3>
+          <p>Helado con trozos de Oreo y jarabe de caramelo.</p>
+          <div class="price">$3.29</div>
+          <button class="add-btn">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Categoría: Bebidas -->
+    <h3>🥤 Bebidas</h3>
+    <div class="menu-grid bebidas">
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/300x200/DA291C/FFFFFF?text=Coca-Cola" alt="Coca-Cola">
+        <div class="menu-item-content">
+          <h3>Coca-Cola Grande</h3>
+          <p>Tu bebida favorita bien fría.</p>
+          <div class="price">$1.99</div>
+          <button class="add-btn">Añadir al carrito</button>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/300x200/DA291C/FFFFFF?text=Fanta" alt="Fanta">
+        <div class="menu-item-content">
+          <h3>Fanta Grande</h3>
+          <p>Tu bebida favorita bien fría.</p>
+          <div class="price">$1.99</div>
+          <button class="add-btn">Añadir al carrito</button>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/300x200/DA291C/FFFFFF?text=Sprite" alt="Sprite">
+        <div class="menu-item-content">
+          <h3>Sprite Grande</h3>
+          <p>Tu bebida favorita bien fría.</p>
+          <div class="price">$1.99</div>
+          <button class="add-btn">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Ruleta -->
+  <section id="ruleta" class="ruleta">
+    <h2>¿Qué estás sintiendo hoy?</h2>
+    <p>Selecciona tu estado de ánimo y te recomendaremos algo perfecto para ti:</p>
+    
+    <div class="emociones-container">
+      <div class="emocion" data-emocion="feliz">
+        <i class="fas fa-laugh-beam"></i>
+        <span>Feliz</span>
+      </div>
+      <div class="emocion" data-emocion="triste">
+        <i class="fas fa-sad-tear"></i>
+        <span>Triste</span>
+      </div>
+      <div class="emocion" data-emocion="estresado">
+        <i class="fas fa-tired"></i>
+        <span>Estresado</span>
+      </div>
+      <div class="emocion" data-emocion="hambriento">
+        <i class="fas fa-hamburger"></i>
+        <span>Hambriento</span>
+      </div>
+      <div class="emocion" data-emocion="aburrido">
+        <i class="fas fa-meh"></i>
+        <span>Aburrido</span>
+      </div>
+    </div>
+    
+    <div class="ruleta-resultado">
+      <div id="ruleta-animacion" class="ruleta-animacion">
+        <i class="fas fa-utensils"></i>
+      </div>
+      <p id="resultado"></p>
+    </div>
+    
+    <button id="reiniciar-ruleta" class="btn-ruleta">Intentar de nuevo</button>
+  </section>
+
+  <!-- Carrito -->
+  <aside class="carrito">
+    <h3>Tu Carrito</h3>
+    <div class="carrito-items">
+      <p><em>Carrito vacío (esperando conexión con JS)</em></p>
+    </div>
+    <div class="carrito-footer">
+      <p>Total: $0.00</p>
+      <button class="checkout-btn">Finalizar compra</button>
+    </div>
+    <div class="icono-carrito salta-al-hover">🛒</div>
+  </aside>
+  
+
+  <!-- Formulario de contacto -->
+  <section class="contacto" id="contacto">
+    <h2>Contáctanos</h2>
+    <form class="formulario-contacto">
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="ejemplo@gmail.com" required>
+      <textarea placeholder="Comentarios y sugerencias" rows="5" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+  
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="footer-logo">McDonald's</div>
+    <p>Este es un diseño utilizado de manera educativa y no está afiliado con McDonald's.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
