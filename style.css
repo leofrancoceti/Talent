@@ -590,3 +590,122 @@ body {
 .img-container img:hover {
   transform: scale(1.05);        /* efecto zoom suave al pasar el mouse */
 }
+
+
+/* Sección Voz */
+.voz-section {
+  background-color: #e6f2ff;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.voz-section h2 {
+  font-size: 2rem;
+  color: #da291c;
+  margin-bottom: 1rem;
+}
+
+.voz-section p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  color: #555;
+}
+
+.voz-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.voz-mic {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background-color: #da291c;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(218, 41, 28, 0.3);
+}
+
+.voz-mic:hover {
+  transform: scale(1.05);
+}
+
+.voz-mic.grabando {
+  background-color: #ff3333;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 51, 51, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 51, 51, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 51, 51, 0); }
+}
+
+.voz-resultado {
+  min-height: 100px;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.voz-opciones {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 1rem;
+}
+
+.voz-btn {
+  background-color: #ffcc00;
+  color: #333;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.voz-btn:hover {
+  background-color: #e6b800;
+  transform: translateY(-2px);
+}
+
+.voz-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.voz-ejemplos {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  text-align: left;
+  background: rgba(255,255,255,0.7);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.voz-ejemplos h3 {
+  color: #da291c;
+  margin-bottom: 0.5rem;
+}
+
+.voz-ejemplos ul {
+  padding-left: 1.5rem;
+  color: #555;
+}
+

@@ -5,19 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>McDonald's</title>
 
-  -----------------------------------------------------------------------
   <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  -----------------------------------------------------------------------
   <!-- Estilos -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  -----------------------------------------------------------------------
   <!-- Encabezado -->
   <header class="header">
     <div class="logo"><h1>McDonald's</h1></div>
@@ -28,13 +25,11 @@
       <li><a href="#inicio">Inicio</a></li>
       <li><a href="#menu">Menú</a></li>
       <li><a href="#ruleta">Ruleta</a></li>
+      <li><a href="#voz">Voz</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
-
-    <div class="icono-carrito" title="Ver carrito">🛒</div>
   </header>
 
-  -----------------------------------------------------------------------
   <!-- Hero Sección -->
   <section class="hero" id="inicio">
     <h2>¡Nuevo Menú Deluxe!</h2>
@@ -42,12 +37,10 @@
     <a href="#menu" class="btn">Ver Menú</a>
   </section>
 
-  -----------------------------------------------------------------------
   <!-- Sección Menú -->
   <section id="menu" class="menu-section">
     <h2>Menú</h2>
 
-    -----------------------------------------------------------------------
     <!-- Filtro -->
     <div class="filtros-menu">
       <button onclick="filtrarCategoria('todas')">Todas</button>
@@ -56,7 +49,7 @@
       <button onclick="filtrarCategoria('postres')">Postres</button>
       <button onclick="filtrarCategoria('bebidas')">Bebidas</button>
     </div>
------------------------------------------------------------------------
+
     <h3>🍔 Hamburguesas</h3>
     <div class="menu-grid hamburguesas">
       <div class="menu-item">
@@ -84,17 +77,21 @@
         </div>
 
         <div class="menu-item">
+          <div class="img-container">
           <img src="Imagenes/McNífica Doble.png" alt="McNífica Doble">
+          </div>
           <div class="menu-item-content">
             <h3>McNífica</h3>
-            <p>Doble carne 100% res y  queso americano</p>
+            <p>Doble carne 100% res y queso americano</p>
             <div class="price">$75.27</div>
             <button class="add-btn">Añadir al carrito</button>
            </div>
           </div>
 
           <div class="menu-item">
+            <div class="img-container">
             <img src="Imagenes/Tocino.png" alt="McTocino">
+            </div>
             <div class="menu-item-content">
               <h3>McBacon</h3>
               <p>Doble carne 100% res, queso americano y tocino</p>
@@ -128,7 +125,9 @@
                 </div>
 
                 <div class="menu-item">
+                  <div class="img-container">
                   <img src="Imagenes/Queso.png" alt="Cheeseburger">
+                  </div>
                   <div class="menu-item-content">
                     <h3>Cheeseburger</h3>
                     <p>Carne 100% de res, con queso amarillo.</p>
@@ -137,12 +136,14 @@
                    </div>
                   </div>
     </div>
------------------------------------------------------------------------    
+    
     <!-- Categoría: Papas -->
     <h3>🍟 Acompañante </h3>
     <div class="menu-grid papas">
       <div class="menu-item">
+        <div class="img-container">
         <img src="Imagenes/Papas Grandeds.png" alt="Papas Grandes">
+        </div>
         <div class="menu-item-content">
           <h3>Papas Fritas</h3>
           <p>Papas crujientes recién hechas.</p>
@@ -152,7 +153,9 @@
       </div>
 
       <div class="menu-item">
+        <div class="img-container">
         <img src="Imagenes/Papas kids.png" alt="Papas Kids">
+        </div>
         <div class="menu-item-content">
           <h3>Papas Kids</h3>
           <p>Papas crujientes del tamaño perfecto para tus niños.</p>
@@ -162,7 +165,9 @@
       </div>
 
       <div class="menu-item">
+        <div class="img-container">
         <img src="Imagenes/Papas Medianas.png" alt="Papas Medianas">
+        </div>
         <div class="menu-item-content">
           <h3>Papas Medianas</h3>
           <p>Papas crujientes, ni mucho ni poquito.</p>
@@ -172,7 +177,9 @@
       </div>
 
     <div class="menu-item">
+      <div class="img-container">
       <img src="Imagenes/Nuggets 6.png" alt="McNuggets 10">
+      </div>
       <div class="menu-item-content">
         <h3>McNuggets 10</h3>
         <p>10 Trocitos 100% de pechuga de pollo con una capa de empanizado doradito.</p>
@@ -182,7 +189,9 @@
       </div>
 
       <div class="menu-item">
+        <div class="img-container">
         <img src="Imagenes/Nuggets 20.png" alt="McNuggets 20">
+        </div>
         <div class="menu-item-content">
           <h3>McNuggets 20</h3>
           <p>20 Trocitos 100% de pechuga de pollo con una capa de empanizado doradito.</p>
@@ -192,12 +201,13 @@
         </div>
       </div>
 
------------------------------------------------------------------------
     <!-- Categoría: Postres -->
     <h3>🍨 Postres</h3>
     <div class="menu-grid postres">
       <div class="menu-item">
+        <div class="img-container">
         <img src="Imagenes/Oreo.png" alt="McFlurry Oreo">
+        </div>
         <div class="menu-item-content">
           <h3>McFlurry Oreo</h3>
           <p>Helado con trozos de Oreo.</p>
@@ -207,7 +217,9 @@
       </div>
 
       <div class="menu-item">
+        <div class="img-container">
         <img src="Imagenes/Gansito.png" alt="McFlurry Gansito Chocolate">
+        </div>
         <div class="menu-item-content">
           <h3>McFlurry Gansito Chocolate</h3>
           <p>Helado con trozos de Gansito sabor chocolate.</p>
@@ -217,17 +229,21 @@
       </div>
 
       <div class="menu-item">
+        <div class="img-container">
         <img src="Imagenes/Sundae Chocolate.png" alt="Sundae Chocolate">
+        </div>
         <div class="menu-item-content">
           <h3>Sundae Chocolate</h3>
           <p>Helado preparado con 100% leche de vaca acompañado con arabe de chocolate.</p>
-          <div class="price">$27.62></div>
+          <div class="price">$27.62</div>
           <button class="add-btn">Añadir al carrito</button>
         </div>
       </div>
 
       <div class="menu-item">
+        <div class="img-container">
         <img src="Imagenes/Sundae Caramelo.png" alt="Sundae Caramelo">
+        </div>
         <div class="menu-item-content">
           <h3>Sundae Caramelo</h3>
           <p>Helado preparado con 100% leche de vaca y acompáñalo con jarabe de caramelo.</p>
@@ -237,12 +253,13 @@
       </div>
     </div>
 
------------------------------------------------------------------------
     <!-- Categoría: Bebidas -->
     <h3>🥤 Bebidas</h3>
     <div class="menu-grid bebidas">
       <div class="menu-item">
+        <div class="img-container">
         <img src="Imagenes/Coca Cola.png" alt="Coca-Cola">
+        </div>
         <div class="menu-item-content">
           <h3>Coca-Cola Grande</h3>
           <p>Tu bebida favorita bien fría.</p>
@@ -252,7 +269,9 @@
       </div>
 
       <div class="menu-item">
+        <div class="img-container">
         <img src="Imagenes/Fanta.png" alt="Fanta">
+        </div>
         <div class="menu-item-content">
           <h3>Fanta Grande</h3>
           <p>Tu bebida favorita bien fría.</p>
@@ -262,7 +281,9 @@
       </div>
 
       <div class="menu-item">
+        <div class="img-container">
         <img src="Imagenes/Sprite.png" alt="Sprite">
+        </div>
         <div class="menu-item-content">
           <h3>Sprite Grande</h3>
           <p>Tu bebida favorita bien fría.</p>
@@ -272,7 +293,9 @@
       </div>
 
       <div class="menu-item">
+        <div class="img-container">
         <img src="Imagenes/Sidral.png" alt="Sidral">
+        </div>
         <div class="menu-item-content">
           <h3>Sidral Grande</h3>
           <p>Tu bebida favorita bien fría.</p>
@@ -282,7 +305,9 @@
       </div>
 
       <div class="menu-item">
+        <div class="img-container">
         <img src="Imagenes/Jugo.png" alt="Jugo">
+        </div>
         <div class="menu-item-content">
           <h3>Jugo</h3>
           <p>100% jugo que puedes pedir de naranja o manzana.</p>
@@ -293,7 +318,6 @@
     </div>
   </section>
 
------------------------------------------------------------------------
   <!-- Sección Ruleta -->
   <section id="ruleta" class="ruleta">
     <h2>¿Qué estás sintiendo hoy?</h2>
@@ -332,21 +356,36 @@
     <button id="reiniciar-ruleta" class="btn-ruleta">Intentar de nuevo</button>
   </section>
 
-  -----------------------------------------------------------------------
-  <!-- Carrito -->
-  <aside class="carrito">
-    <h3>Tu Carrito</h3>
-    <div class="carrito-items">
-      <p><em>Carrito vacío (esperando conexión con JS)</em></p>
+  <!-- Sección Voz -->
+  <section id="voz" class="voz-section">
+    <h2>Pedido por Voz</h2>
+    <p>Habla con nosotros para realizar tu pedido:</p>
+    
+    <div class="voz-container">
+      <div class="voz-mic" id="voz-mic">
+        <i class="fas fa-microphone"></i>
+      </div>
+      
+      <div class="voz-resultado" id="voz-resultado">
+        <p id="voz-texto">Presiona el micrófono y habla...</p>
+      </div>
+      
+      <div class="voz-opciones">
+        <button id="voz-iniciar" class="voz-btn">Iniciar</button>
+        <button id="voz-detener" class="voz-btn" disabled>Detener</button>
+        <button id="voz-borrar" class="voz-btn">Borrar</button>
+      </div>
     </div>
-    <div class="carrito-footer">
-      <p>Total: $0.00</p>
-      <button class="checkout-btn">Finalizar compra</button>
+    
+    <div class="voz-ejemplos">
+      <h3>Ejemplos de comandos:</h3>
+      <ul>
+        <li>"Quiero una Big Mac con papas grandes"</li>
+        <li>"Dame un McFlurry de Oreo"</li>
+        <li>"Necesito dos Cuartos de Libra con queso"</li>
+      </ul>
     </div>
-    <div class="icono-carrito salta-al-hover">🛒</div>
-  </aside>
-  
-  -----------------------------------------------------------------------
+  </section>
 
   <!-- Formulario de contacto -->
   <section class="contacto" id="contacto">
@@ -359,7 +398,6 @@
     </form>
   </section>
   
-  -----------------------------------------------------------------------
   <!-- Pie de página -->
   <footer class="footer">
     <div class="footer-logo">McDonald's</div>
