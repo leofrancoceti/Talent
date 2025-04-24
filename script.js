@@ -187,7 +187,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Logica de voz gabbys ya daada por el usauruio
     console.log("Comando recibido:", texto);
 
-		// TODO§
+		
+    
 
   }
 
