@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Menú móvil este es gabbys para poder ver y selleccionar el menú
+  // Menú móvil
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
   
@@ -111,7 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
   let reconocimiento;
   let grabando = false;
-	let conversacion = [];
+  let conversacion = [];
+  let ultimoResultado = '';
   
   // Verificar compatibilidad con el API de reconocimiento de voz
   if ('webkitSpeechRecognition' in window) {
@@ -126,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
       vozTexto.textContent = "Escuchando... habla ahora";
       vozIniciar.disabled = true;
       vozDetener.disabled = false;
+      ultimoResultado = ''; // Resetear el último resultado al iniciar
     };
     
     reconocimiento.onerror = function(event) {
@@ -141,16 +143,26 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     reconocimiento.onresult = function(event) {
-      let textoTranscrito = '';
+      let resultadoFinal = null;
+
+      // Buscar el último resultado final
       for (let i = event.resultIndex; i < event.results.length; i++) {
         if (event.results[i].isFinal) {
-          textoTranscrito += event.results[i][0].transcript;
-        } else {
-          textoTranscrito += event.results[i][0].transcript;
+          resultadoFinal = event.results[i][0].transcript.trim();
         }
       }
-      vozTexto.textContent = textoTranscrito;
-      procesarComando(textoTranscrito);
+
+      // Procesar solo si es un resultado final nuevo
+      if (resultadoFinal && resultadoFinal !== ultimoResultado) {
+        ultimoResultado = resultadoFinal;
+        vozTexto.textContent = resultadoFinal;
+        procesarComando(resultadoFinal);
+      }
+      // Opcional: Mostrar resultados intermedios (sin procesar)
+      else if (!resultadoFinal) {
+        const textoIntermedio = event.results[event.results.length - 1][0].transcript;
+        vozTexto.textContent = textoIntermedio;
+      }
     };
     
     vozIniciar.addEventListener('click', function() {
@@ -161,6 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     vozBorrar.addEventListener('click', function() {
       vozTexto.textContent = "Presiona el micrófono y habla...";
+      ultimoResultado = '';
     });
     
     vozMic.addEventListener('click', function() {
@@ -185,43 +198,39 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   async function procesarComando(texto) {
-    // Logica de voz gabbys ya daada por el usauruio
     console.log("Comando recibido:", texto);
-		conversacion.push({role: 'user', content: texto})
-		await consultarOpenAI();
-		
+    conversacion.push({role: 'user', content: texto});
+    await consultarOpenAI();
   }
 
+  // ... (código anterior se mantiene igual)
 
-
-  async function consultarOpenAI() {
-    const tools = [{
+async function consultarOpenAI() {
+  const tools = [{
     "type": "function",
     "name": "CompleteOrder",
     "description": "Realiza un pedido de comida en McDonald's",
     "parameters": {
-        "type": "object",
-        "properties": {
-            "food": {
-                "type": "string",
-                "description": "Comida que deseas pedir"
-            },
-            "quantity": {
-                "type": "integer",
-                "description": "Cantidad de comida que deseas pedir"
-            }
+      "type": "object",
+      "properties": {
+        "food": {
+          "type": "string",
+          "description": "Comida que deseas pedir"
         },
-        "required": [
-            "food",
-            "quantity"
-        ],
-        "additionalProperties": false
+        "quantity": {
+          "type": "integer",
+          "description": "Cantidad de comida que deseas pedir"
+        }
+      },
+      "required": [
+        "food",
+        "quantity"
+      ],
+      "additionalProperties": false
     }
-}]
-    console.log([
-      {"role": "system", "content": "Eres un cajero  de McDonald's y debes ayudar a los clientes a realizar su pedido, 2-. Si el cliente no especifica la cantidad, asume que quiere 1 unidad de cada producto. 3-. Si el cliente no especifica el producto, pregunta por el nombre del producto que desea pedir. 4Ten en ceunta que el cliente tiene discapacidad Visual. "},
-               ...conversacion
-              ])
+  }];
+  
+  try {
     const respuesta = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
@@ -231,21 +240,73 @@ document.addEventListener('DOMContentLoaded', function() {
       body: JSON.stringify({
         model: "gpt-3.5-turbo",
         input: [
-{"role": "system", "content": "Eres un cajero  de McDonald's y debes ayudar a los clientes a realizar su pedido, 2-. Si el cliente no especifica la cantidad, asume que quiere 1 unidad de cada producto. 3-. Si el cliente no especifica el producto, pregunta por el nombre del producto que desea pedir. 4Ten en ceunta que el cliente tiene discapacidad Visual. "},
-				 ...conversacion
-				],
-				tools: tools
+          {"role": "system", "content": "Eres un cajero de McDonald's y debes ayudar a los clientes a realizar su pedido, 2-. Si el cliente no especifica la cantidad, asume que quiere 1 unidad de cada producto. 3-. Si el cliente no especifica el producto, pregunta por el nombre del producto que desea pedir. 4Ten en cuenta que el cliente tiene discapacidad Visual."},
+          ...conversacion
+        ],
+        tools: tools
       })
     });
 
     const datos = await respuesta.json();
-		console.log(datos);
-    console.log(datos.output[0].content[0].text);
-conversacion.push({
-	role: 'assistant', content: datos.output[0].content[0].text
-});
-    //generarAudio(datos.choices[0].message.content);
+    const respuestaIA = datos.output[0].content[0].text;
+    
+    console.log(datos);
+    console.log(respuestaIA);
+    
+    conversacion.push({
+      role: 'assistant', 
+      content: respuestaIA
+    });
+    
+    // Mostrar la respuesta en el elemento de texto
+    vozTexto.textContent = respuestaIA;
+    
+    // Generar audio de la respuesta
+    generarAudio(respuestaIA);
+    
+  } catch (error) {
+    console.error("Error al consultar OpenAI:", error);
+    vozTexto.textContent = "Lo siento, hubo un error al procesar tu solicitud.";
   }
+}
 
+// Función para generar audio usando la API de síntesis de voz del navegador
+function generarAudio(texto) {
+// Verificar si el navegador soporta síntesis de voz
+if ('speechSynthesis' in window) {
+  const synthesis = window.speechSynthesis;
+  
+  // Cancelar cualquier audio previo que esté reproduciéndose
+  synthesis.cancel();
+  
+  // Crear un nuevo objeto SpeechSynthesisUtterance
+  const utterance = new SpeechSynthesisUtterance(texto);
+  
+  // Configurar opciones de voz
+  utterance.lang = 'es-ES';
+  utterance.rate = 1.0; // Velocidad normal
+  utterance.pitch = 1.0; // Tono normal
+  
+  // Seleccionar una voz en español si está disponible
+  const voces = synthesis.getVoices();
+  const vozES = voces.find(voz => voz.lang.includes('es'));
+  if (vozES) {
+    utterance.voice = vozES;
+  }
+  
+  // Reproducir el audio
+  synthesis.speak(utterance);
+  
+} else {
+  console.warn("Tu navegador no soporta la síntesis de voz.");
+  // Alternativa: Podrías implementar aquí el uso de la API de OpenAI TTS si lo prefieres
+}
+}
 
+// Asegurarnos de que las voces estén cargadas (necesario en algunos navegadores)
+if ('speechSynthesis' in window) {
+window.speechSynthesis.onvoiceschanged = function() {
+  console.log("Voces cargadas:", window.speechSynthesis.getVoices());
+};
+}
 });
