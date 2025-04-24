@@ -111,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   let reconocimiento;
   let grabando = false;
+	let conversacion = [];
   
   // Verificar compatibilidad con el API de reconocimiento de voz
   if ('webkitSpeechRecognition' in window) {
@@ -186,12 +187,62 @@ document.addEventListener('DOMContentLoaded', function() {
   async function procesarComando(texto) {
     // Logica de voz gabbys ya daada por el usauruio
     console.log("Comando recibido:", texto);
-
+		conversacion.push('user': texto)
+		await consultarOpenAI();
 		
-    
-
   }
 
-	
+
+
+  async function consultarOpenAI() {
+    const tools = [{
+    "type": "function",
+    "name": "CompleteOrder",
+    "description": "Realiza un pedido de comida en McDonald's",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "food": {
+                "type": "string",
+                "description": "Comida que deseas pedir"
+            },
+            "quantity": {
+                "type": "integer",
+                "description": "Cantidad de comida que deseas pedir"
+            }
+        },
+        "required": [
+            "food",
+            "quantity"
+        ],
+        "additionalProperties": false
+    }
+}]
+    
+    const respuesta = await fetch("https://api.openai.com/v1/responses", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer "
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        input: [
+{"role": "system", "content": "Eres un cajero  de McDonald's y debes ayudar a los clientes a realizar su pedido, 2-. Si el cliente no especifica la cantidad, asume que quiere 1 unidad de cada producto. 3-. Si el cliente no especifica el producto, pregunta por el nombre del producto que desea pedir. 4Ten en ceunta que el cliente tiene discapacidad Visual. "},
+				 ...convesacion
+				],
+				tools: tools
+      })
+    });
+
+    const datos = await respuesta.json();
+		console.log(datos);
+    console.log(datos.output[0].content[0].text);
+conversacion.push({
+	'agent': datos.output[0].content[0].text
+});
+    //generarAudio(datos.choices[0].message.content);
+  }
+
 
 });
