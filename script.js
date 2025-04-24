@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
     await consultarOpenAI();
   }
 
-  // ... (código anterior se mantiene igual)
+  
 
 async function consultarOpenAI() {
   const tools = [{
@@ -309,4 +309,8 @@ window.speechSynthesis.onvoiceschanged = function() {
   console.log("Voces cargadas:", window.speechSynthesis.getVoices());
 };
 }
+
 });
+
+
+
