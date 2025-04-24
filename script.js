@@ -183,13 +183,14 @@ document.addEventListener('DOMContentLoaded', function() {
     vozDetener.disabled = true;
   }
   
-  function procesarComando(texto) {
+  async function procesarComando(texto) {
     // Logica de voz gabbys ya daada por el usauruio
     console.log("Comando recibido:", texto);
-    
-    // Ejemplo básico de procesamiento
-    if (texto.toLowerCase().includes('big mac')) {
-      alert("Has pedido una Big Mac. ¡Buena elección!");
-    }
+
+		// TODO§
+
   }
+
+	
+
 });
