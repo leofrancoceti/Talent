@@ -387,6 +387,11 @@
     </div>
   </section>
 
+	<section>
+	<button onclick="generarAudio()">Generar Audio</button>
+  <audio id="reproductor" controls></audio>
+	</section>
+
   <!-- Formulario de contacto -->
   <section class="contacto" id="contacto">
     <h2>Contáctanos</h2>
@@ -407,6 +412,38 @@
   <!-- Scripts -->
   <script src="script.js"></script>
 	<script>
+
+		   async function generarAudio(input) {
+      const apiKey = ''; // Reemplaza con tu clave de API de OpenAI
+
+      const respuesta = await fetch('https://api.openai.com/v1/audio/speech', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+          'Accept': 'audio/mpeg'
+        },
+        body: JSON.stringify({
+          model: 'tts-1-hd',
+          voice: 'alloy',
+          input: input
+        })
+      });
+
+      if (!respuesta.ok) {
+        console.error('Error al generar el audio:', await respuesta.text());
+        return;
+      }
+
+      const arrayBuffer = await respuesta.arrayBuffer();
+      const blob = new Blob([arrayBuffer], { type: 'audio/mpeg' });
+      const url = URL.createObjectURL(blob);
+
+      const reproductor = document.getElementById('reproductor');
+      reproductor.src = url;
+      reproductor.play();
+    }
+
   async function consultarOpenAI() {
 		const texto = "Hola quiero una bigMAc"
 
@@ -426,7 +463,8 @@
     });
 
     const datos = await respuesta.json();
-    console.log(datos);
+    console.log(datos.choices[0].message.content);
+    generarAudio(datos.choices[0].message.content);
   }
 
   consultarOpenAI();
