@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
   async function procesarComando(texto) {
     // Logica de voz gabbys ya daada por el usauruio
     console.log("Comando recibido:", texto);
-		conversacion.push('user': texto)
+		conversacion.push({role: 'user', content: texto})
 		await consultarOpenAI();
 		
   }
@@ -218,18 +218,21 @@ document.addEventListener('DOMContentLoaded', function() {
         "additionalProperties": false
     }
 }]
-    
+    console.log([
+      {"role": "system", "content": "Eres un cajero  de McDonald's y debes ayudar a los clientes a realizar su pedido, 2-. Si el cliente no especifica la cantidad, asume que quiere 1 unidad de cada producto. 3-. Si el cliente no especifica el producto, pregunta por el nombre del producto que desea pedir. 4Ten en ceunta que el cliente tiene discapacidad Visual. "},
+               ...conversacion
+              ])
     const respuesta = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer "
+        "Authorization": "Bearer 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"
       },
       body: JSON.stringify({
         model: "gpt-3.5-turbo",
         input: [
 {"role": "system", "content": "Eres un cajero  de McDonald's y debes ayudar a los clientes a realizar su pedido, 2-. Si el cliente no especifica la cantidad, asume que quiere 1 unidad de cada producto. 3-. Si el cliente no especifica el producto, pregunta por el nombre del producto que desea pedir. 4Ten en ceunta que el cliente tiene discapacidad Visual. "},
-				 ...convesacion
+				 ...conversacion
 				],
 				tools: tools
       })
@@ -239,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log(datos);
     console.log(datos.output[0].content[0].text);
 conversacion.push({
-	'agent': datos.output[0].content[0].text
+	role: 'assistant', content: datos.output[0].content[0].text
 });
     //generarAudio(datos.choices[0].message.content);
   }
