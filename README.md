@@ -1,30 +1,59 @@
-🍔 McDonald's Voice & Mood Experience 
-¡Bienvenido al repositorio del proyecto McDonald's Voice & Mood Experience desarrollado para Talent 2025! Una innovadora página web que combina tecnología de voz con IA y una divertida ruleta de emociones para revolucionar la experiencia del usuario en McDonald's.
+McDonald's Voice & Mood Experience
+Talent 2025 — Proyecto de innovación digital
 
-✨ Características Principales
-🎤 Pedido por Voz con IA
-Interacción natural: Habla directamente con nuestro sistema como si fuera un asistente real.
+Bienvenido al repositorio de McDonald's Voice & Mood Experience, una aplicación web interactiva que combina reconocimiento de voz, inteligencia artificial y análisis emocional para transformar la experiencia del usuario en McDonald's.
 
-Comandos intuitivos: Iniciar, detener o borrar tu pedido con simples instrucciones de voz.
 
-Reconocimiento avanzado: Tecnología IA que entiende tus preferencias y sugerencias de menú.
 
-🎡 Ruleta de Sentimientos
-Personalización emocional: Selecciona tu estado de ánimo (feliz, triste, estresado, hambriento o aburrido) y recibe recomendaciones personalizadas.
+🚀 Descripción General
+Este proyecto busca ofrecer una nueva forma de interacción dentro de los restaurantes McDonald's, permitiendo a los usuarios realizar pedidos por voz y recibir recomendaciones personalizadas según su estado de ánimo. Está diseñado para funcionar directamente en navegadores web modernos, sin necesidad de instalación.
 
-Experiencia única: Menús especiales adaptados a cómo te sientes en ese momento.
+Funcionalidades Principales
+1. Pedido por Voz con IA
+Interacción Natural: El usuario puede hablar directamente con el sistema como si se tratara de un asistente virtual.
 
-🍟 Interfaz McDonald's Mejorada
-Nuevo Menú Deluxe: Presentación de hamburguesas gourmet con ingredientes premium.
+Comandos Intuitivos: Reconocimiento de comandos como iniciar, detener o borrar un pedido.
 
-Navegación intuitiva: Fácil acceso a todas las categorías del menú.
+IA Contextual: El sistema comprende las preferencias del usuario y sugiere productos relevantes del menú.
 
-🛠 Tecnologías Utilizadas
-Frontend: HTML5, CSS3, JavaScript (React/Vue.js)
 
-Voz: Web Speech API + IA personalizada
 
-Diseño: UI/UX moderno con animaciones fluidas
+2. Ruleta de Sentimientos
+Selección Emocional: El usuario elige cómo se siente (feliz, estresado, aburrido, etc.).
 
-Backend: Node.js/Express (para futuras integraciones)
+Recomendaciones Adaptadas: Se presentan opciones del menú según el estado emocional.
 
+
+
+3. Interfaz Visual Renovada
+Nuevo Menú Deluxe: Presentación de productos premium con imágenes atractivas.
+
+Diseño Intuitivo: Navegación fluida y accesible para todo tipo de usuarios.
+
+🧰 Tecnologías Utilizadas
+Área	Tecnologías
+Frontend	HTML5, CSS3, JavaScript
+Voz	Web Speech API + IA personalizada
+UI/UX	Animaciones suaves, diseño adaptativo
+Backend (Prototipo)	Node.js, Express (para futuras integraciones)
+
+📁 Estructura del Proyecto (resumen)
+bash
+Copiar
+Editar
+├── index.html           # Página principal
+├── styles/              # Archivos CSS
+├── scripts/             # Lógica JS para voz y emociones
+├── assets/              # Imágenes y recursos visuales
+└── README.md            # Este documento
+💡 Posibles Mejoras Futuras
+Integración con un sistema real de pedidos.
+
+Soporte multilingüe.
+
+Estadísticas sobre emociones del usuario.
+
+Compatibilidad con dispositivos móviles en restaurantes físicos.
+
+📄 Licencia
+Este proyecto fue desarrollado como parte del programa Talent 2025 y es de uso educativo/demostrativo. Puedes usarlo, modificarlo o adaptarlo citando la fuente original.
