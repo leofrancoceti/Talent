@@ -1,59 +1,67 @@
-McDonald's Voice & Mood Experience
-Talent 2025 — Proyecto de innovación digital
+🚀 McDonald's Voice & Mood Experience - Talent 2025
+Bienvenido al proyecto McDonald's Voice & Mood Experience, una aplicación web interactiva desarrollada para Talent 2025.
+Este proyecto combina tecnología de voz, inteligencia artificial y una ruleta de emociones para crear una experiencia innovadora dentro de los restaurantes McDonald's.
 
-Bienvenido al repositorio de McDonald's Voice & Mood Experience, una aplicación web interactiva que combina reconocimiento de voz, inteligencia artificial y análisis emocional para transformar la experiencia del usuario en McDonald's.
+🎤 Pedido por Voz con IA
+La aplicación permite realizar pedidos mediante comandos de voz usando un asistente inteligente:
 
+Interacción natural con lenguaje conversacional.
 
+Comandos como iniciar pedido, cancelar o borrar selección.
 
-🚀 Descripción General
-Este proyecto busca ofrecer una nueva forma de interacción dentro de los restaurantes McDonald's, permitiendo a los usuarios realizar pedidos por voz y recibir recomendaciones personalizadas según su estado de ánimo. Está diseñado para funcionar directamente en navegadores web modernos, sin necesidad de instalación.
+Reconocimiento inteligente que comprende preferencias y sugiere productos del menú.
 
-Funcionalidades Principales
-1. Pedido por Voz con IA
-Interacción Natural: El usuario puede hablar directamente con el sistema como si se tratara de un asistente virtual.
-
-Comandos Intuitivos: Reconocimiento de comandos como iniciar, detener o borrar un pedido.
-
-IA Contextual: El sistema comprende las preferencias del usuario y sugiere productos relevantes del menú.
+![image](https://github.com/user-attachments/assets/b8a0c49b-5be0-4a4c-b46c-aa1de323ed57)
 
 
 
-2. Ruleta de Sentimientos
-Selección Emocional: El usuario elige cómo se siente (feliz, estresado, aburrido, etc.).
+🎡 Ruleta de Emociones
+El usuario puede seleccionar cómo se siente para recibir sugerencias personalizadas del menú:
 
-Recomendaciones Adaptadas: Se presentan opciones del menú según el estado emocional.
+Estados disponibles: feliz, triste, estresado, hambriento o aburrido.
+
+El sistema adapta la experiencia según el estado emocional.
+
+![image](https://github.com/user-attachments/assets/42c7dcc8-1641-46a5-abbc-04a99789bf91)
 
 
 
-3. Interfaz Visual Renovada
-Nuevo Menú Deluxe: Presentación de productos premium con imágenes atractivas.
+🍔 Interfaz de Usuario Estilo McDonald's
+Estética inspirada en la identidad visual de McDonald's.
 
-Diseño Intuitivo: Navegación fluida y accesible para todo tipo de usuarios.
+Menú gourmet con productos destacados.
 
-🧰 Tecnologías Utilizadas
+Navegación simple, clara e intuitiva para todo tipo de usuarios.
+
+
+![image](https://github.com/user-attachments/assets/ab175f10-752d-4068-9552-c02d951edf4e)
+
+
+🛠️ Tecnologías Utilizadas
 Área	Tecnologías
 Frontend	HTML5, CSS3, JavaScript
-Voz	Web Speech API + IA personalizada
-UI/UX	Animaciones suaves, diseño adaptativo
-Backend (Prototipo)	Node.js, Express (para futuras integraciones)
+Voz	Web Speech API + lógica con IA
+UI/UX	Diseño responsivo, animaciones suaves
+Backend (prototipo)	Node.js / Express (preparado para integración futura)
 
-📁 Estructura del Proyecto (resumen)
+📁 Estructura del Proyecto (Resumen)
 bash
 Copiar
 Editar
 ├── index.html           # Página principal
-├── styles/              # Archivos CSS
-├── scripts/             # Lógica JS para voz y emociones
-├── assets/              # Imágenes y recursos visuales
-└── README.md            # Este documento
-💡 Posibles Mejoras Futuras
-Integración con un sistema real de pedidos.
+├── styles/              # Estilos CSS personalizados
+├── scripts/             # Lógica de reconocimiento de voz y emociones
+├── assets/              # Imágenes y recursos gráficos
+└── README.md            # Este archivo
+✅ Próximas Funcionalidades (Roadmap)
+Integración real con sistema de pedidos McDonald's.
 
-Soporte multilingüe.
+Compatibilidad con pantallas táctiles de restaurantes físicos.
 
-Estadísticas sobre emociones del usuario.
+Análisis de emociones a lo largo del tiempo.
 
-Compatibilidad con dispositivos móviles en restaurantes físicos.
+Multilenguaje y accesibilidad avanzada.
 
-📄 Licencia
-Este proyecto fue desarrollado como parte del programa Talent 2025 y es de uso educativo/demostrativo. Puedes usarlo, modificarlo o adaptarlo citando la fuente original.
+📄 Licencia y Uso
+Este proyecto fue creado con fines demostrativos como parte de Talent 2025.
+Está disponible para su uso libre en contextos educativos y de investigación.
